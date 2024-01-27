@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PatientQuery.Common\PatientQuery.Common.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="InterSystems.Data.IRISClient">
+      <HintPath>..\libs\InterSystems.Data.IRISClient.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+</Project>

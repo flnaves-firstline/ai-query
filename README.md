@@ -27,6 +27,16 @@ Clone/git pull the repo into any local directory
 $ git clone https://github.com/flnaves/fhir-contest.git
 ```
 
+The application requires an OpenAI API key to work. Insert the key to the [src/app/PatientQuery.Back/appsettings.json](https://github.com/intersystems-community/iris-fhir-server-template/tree/master/src/app/PatientQuery.Back/appsettings.json) config file in the `OpenAi.ApiKey` field
+
+```
+  ...
+  "OpenAi": {
+    "Url": "https://api.openai.com",
+    "ApiKey": "your-openai-api-key-here",
+  ...
+```
+
 Open the terminal in this directory and run:
 
 ```

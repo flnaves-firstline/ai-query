@@ -1,0 +1,103 @@
+grammar EligibilityRule;
+
+parse: orExpr EOF;
+
+orExpr: andExpr ( OR andExpr)*;
+
+andExpr: expr ( AND expr)*;
+
+expr: '(' orExpr ')' | rule;
+
+rule:
+	LIFESTATUS ':' EQUAL ':' (ALIVE | DECEASED)
+	| GENDER ':' EQUAL ':' (MALE | FEMALE)
+	| AGE ':' (
+		(
+			(
+				EQUAL
+				| LESS
+				| LESS_OR_EQUAL
+				| GREATER
+				| GREATER_OR_EQUAL
+			) ':' VALUE_NUMBER
+		)
+		| (BETWEEN ':' VALUE_BETWEEN_NUMBERS)
+	)
+	| BIRTH_DATE ':' (
+		(
+			(
+				EQUAL
+				| LESS
+				| LESS_OR_EQUAL
+				| GREATER
+				| GREATER_OR_EQUAL
+			) ':' numberOrString
+		)
+		| (BETWEEN ':' ( VALUE_BETWEEN_NUMBERS | VALUE_BETWEEN))
+	)
+	| RACE ':' EQUAL ':' VALUE_STRING
+	| ETHNICITY ':' EQUAL ':' VALUE_STRING
+	| DIAGNOSIS ':' (EQUAL | NOT_EQUAL) ':' VALUE_STRING
+	| MEDICATION ':' (EQUAL | NOT_EQUAL) ':' VALUE_STRING
+	| PROCEDURE ':' (EQUAL | NOT_EQUAL) ':' VALUE_STRING
+	| ENCOUNTERDATE ':' (
+		(
+			(
+				EQUAL
+				| LESS
+				| NOT_LESS
+				| LESS_OR_EQUAL
+				| NOT_LESS_OR_EQUAL
+				| GREATER
+				| NOT_GREATER
+				| GREATER_OR_EQUAL
+				| NOT_GREATER_OR_EQUAL
+			) ':' numberOrString
+		)
+		| (BETWEEN ':' ( VALUE_BETWEEN_NUMBERS | VALUE_BETWEEN))
+	);
+
+numberOrString: VALUE_NUMBER | VALUE_STRING;
+
+// fields
+LIFESTATUS: 'life status';
+GENDER: 'gender';
+AGE: 'age';
+BIRTH_DATE: 'birth date';
+RACE: 'race';
+ETHNICITY: 'ethnicity';
+DIAGNOSIS: 'diagnosis';
+MEDICATION: 'medication';
+PROCEDURE: 'procedure';
+ENCOUNTERDATE: 'encounter date';
+// operators
+EQUAL: 'equal';
+NOT_EQUAL: 'not equal';
+LESS: 'less';
+NOT_LESS: 'not less';
+LESS_OR_EQUAL: 'less or equal';
+NOT_LESS_OR_EQUAL: 'not less or equal';
+GREATER: 'greater';
+NOT_GREATER: 'not greater';
+GREATER_OR_EQUAL: 'greater or equal';
+NOT_GREATER_OR_EQUAL: 'not greater or equal';
+BETWEEN: 'between';
+// values
+ALIVE: '"alive"';
+DECEASED: '"deceased"';
+MALE: '"male"';
+FEMALE: '"female"';
+// rest
+AND: ' AND ';
+OR: ' OR ';
+VALUE_BETWEEN_NUMBERS: '"' [0-9]+ '^' [0-9]+ '"';
+VALUE_BETWEEN: '"' (ESC | ~[^"\\])* '^' (ESC | ~[^"\\])* '"';
+VALUE_NUMBER: '"' [0-9]+ '"';
+VALUE_STRING: '"' (ESC | ~["\\])* '"';
+UNKNOWN: [ a-zA-Z0-9]+;
+SPACE: [ \t\r\n] -> skip;
+
+fragment ESC: '\\' (["\\/bfnrt] | UNICODE);
+fragment UNICODE: 'u' HEX HEX HEX HEX;
+fragment HEX: [0-9a-fA-F];
+

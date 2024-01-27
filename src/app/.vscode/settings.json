@@ -1,0 +1,9 @@
+{
+  "dotnet.defaultSolution": "fhir_omop_frontend.sln",
+  "antlr4.generation": {
+    "mode": "external",
+    "language": "CSharp",
+    "listeners": false,
+    "visitors": true
+  }
+}

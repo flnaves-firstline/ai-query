@@ -1,0 +1,41 @@
+version: "3.5"
+services:
+  db:
+    container_name: patient_query_db
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=db_password
+      - POSTGRES_DB=db_patient_query
+    ports:
+      - 5436:5432
+    networks:
+      - patient_query_local_network
+  omop_db:
+    container_name: patient_query_omop_db
+    image: flsdkiselev/omop-concepts
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=db_password
+      - POSTGRES_DB=db_omop
+    ports:
+      - 5437:5432
+    networks:
+      - patient_query_local_network
+  web:
+    container_name: patient_query_web
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 1523:80
+    restart: unless-stopped
+    environment:
+      - ASPNETCORE_ENVIRONMENT=dev
+    networks:
+      - patient_query_local_network
+networks:
+  patient_query_local_network:
+    name: patient_query_local_network

@@ -16,3 +16,48 @@ services:
       - -a
       - iris session iris -U%SYS '##class(Security.Users).UnExpireUserPasswords("*")'
       - --check-caps false
+    networks:
+      - app_local_network
+  db:
+    container_name: app_db
+    image: postgres
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=db_password
+      - POSTGRES_DB=db_app
+    ports:
+      - 5436:5432
+    networks:
+      - app_local_network
+  db_omop:
+    container_name: app_db_omop
+    image: flsdkiselev/omop-concepts
+    restart: unless-stopped
+    environment:
+      - POSTGRES_USER=db_user
+      - POSTGRES_PASSWORD=db_password
+      - POSTGRES_DB=db_omop
+    ports:
+      - 5437:5432
+    networks:
+      - app_local_network
+  web:
+    container_name: app_web
+    build:
+      context: ./src/app
+      dockerfile: Dockerfile
+    ports:
+      - 5000:80
+    restart: unless-stopped
+    depends_on:
+      - db
+      - db_omop
+      - iris
+    environment:
+      - ASPNETCORE_ENVIRONMENT=dev
+    networks:
+      - app_local_network
+networks:
+  app_local_network:
+    name: app_local_network

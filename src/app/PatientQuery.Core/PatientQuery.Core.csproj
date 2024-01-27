@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PatientQuery.Common\PatientQuery.Common.csproj" />
+    <ProjectReference Include="..\PatientQuery.Db\PatientQuery.Db.csproj" />
+    <ProjectReference Include="..\PatientQuery.OmopDb\PatientQuery.OmopDb.csproj" />
+    <ProjectReference Include="..\PatientQuery.IrisDb\PatientQuery.IrisDb.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.0.143" />
+    <PackageReference Include="Antlr4.Runtime.Standard" Version="4.9.2" />
+    <PackageReference Include="Hl7.Fhir.R4" Version="5.2.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.1" />
+    <PackageReference Include="LazyCache.AspNetCore" Version="2.4.0" />
+  </ItemGroup>
+</Project>
