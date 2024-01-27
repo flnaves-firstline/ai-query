@@ -2,7 +2,7 @@
 
 # AI Query
 ## Overview
-This repository hosts a cutting-edge application designed to revolutionize how users interact with healthcare data. The application comprises two primary components, each running in its own container: a database utilizing the InterSystems FHIR technology, configured with tables via the FHIR SQL Builder, and a .NET application with a front-end interface.
+Our AI-based eligibility query tool dramatically simplifies finding patients with gaps in care and identifying cohorts of patients for clinical trials and studies. We loaded FHIR resources for test patients into IRIS and exposed them to the AI query tool using IRIS FHIR SQL builder. The AI tool recognizes requests against heterogeneous data sources, asks clarifying questions and executes asynchronous tasks.
 
 ## Components
 ### Container 1: InterSystems FHIR Database
