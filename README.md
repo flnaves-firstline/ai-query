@@ -1,6 +1,6 @@
  [![Gitter](https://img.shields.io/badge/Available%20on-Intersystems%20Open%20Exchange-00b2a9.svg)](https://openexchange.intersystems.com/package/iris-fhir-template)
 
-# FHIR Data Query Application with OpenAI Integration
+# AI Query
 ## Overview
 This repository hosts a cutting-edge application designed to revolutionize how users interact with healthcare data. The application comprises two primary components, each running in its own container: a database utilizing the InterSystems FHIR technology, configured with tables via the FHIR SQL Builder, and a .NET application with a front-end interface.
 
