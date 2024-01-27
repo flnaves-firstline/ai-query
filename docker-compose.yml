@@ -1,0 +1,18 @@
+version: '3.6'
+services:
+  iris:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+#   command: --check-caps false
+    volumes:
+      - ./output:/home/irisowner/irisdev/app/output/
+    ports: 
+      - 1972:1972
+      - 52773:52773
+      - 53773:53773
+    command: 
+      - -a
+      - iris session iris -U%SYS '##class(Security.Users).UnExpireUserPasswords("*")'
+      - --check-caps false
