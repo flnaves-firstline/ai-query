@@ -139,4 +139,3 @@ This and other helpful commands you can find in [dev.md](https://github.com/inte
 - Data analyst: Maria Ogienko
 - BA: Anastasia Samoilova
 - QA: Kseniya Hoar
-- PM: Olga Verevkina
