@@ -2,7 +2,37 @@
 
 # AI Query
 ## Overview
+Revolutionize patient care with our groundbreaking app, AIQuery, which turns complex data queries into simple, natural language requests, leveraging the power of AI. In the fast-paced world of healthcare, identifying patients with gaps in care is crucial for enhancing care quality, patient satisfaction, and achieving superior outcomes. Yet, many organizations struggle with outdated systems, relying on inefficient manual processes that are costly and error-prone.
+Clinovera addresses these challenges head-on by enabling healthcare professionals to effortlessly identify patients in need of attention and suitable candidates for clinical trials. 
+
 Our AI-based eligibility query tool dramatically simplifies finding patients with gaps in care and identifying cohorts of patients for clinical trials and studies. We loaded FHIR resources for test patients into IRIS and exposed them to the AI query tool using IRIS FHIR SQL builder. The AI tool recognizes requests against heterogeneous data sources, asks clarifying questions and executes asynchronous tasks.
+
+## Usage
+Utilizing AIQuery is straightforward and designed with the user in mind. Begin by simply typing or speaking your query into the app, using natural language as if you were asking a colleague.
+
+Here's how our solution stands out:
+- **Simplify complexity:** Forget navigating complex databases. Say what you need in plain language, like "Find me all Hispanic patients with diabetes born after January 1, 1960, with elevated blood pressure, who are obese and on statins."
+- **Incremental queries:** Start with a broad request and refine it as you go, such as adding "I only want female patients" to your initial query, making data exploration intuitive and dynamic.
+- **Smart classification:** Our AI doesn't just take your words at face value. It understands medical terminology, turning a query for "statin" into a search across all relevant medications.
+- **Interactive clarification:** When queries are ambiguous, AIQuery seeks clarity. If you mention "ibuprofen," the app confirms whether you're referring to the drug specifically or its broader class.
+- **Effortless asynchronicity:** Request your data and move on with your day. AIQuery works in the background, delivering results when you're ready, even if it's "by tomorrow morning."
+
+## Demo
+Experience AIQuery in action through these simple steps:
+- **Basic query execution:**
+Begin with a straightforward request. For example, you might ask for "all patients with diabetes."
+
+- **Refining your search:**
+Add details to narrow down your search: "Show me those who were born after 1960”
+
+- **Complex queries simplified:**
+Use natural language for complex requests. "Find patients who take simvastatin":
+
+- **Interactive Clarifications:**
+When clarification is needed, AIQuery interacts with you. If you ask to find all patients who take aspirin, AIQuery will specify if it is a brand name or a drug generic / class name:
+
+AIQuery isn't just an app; it's a revolution in healthcare data management. By translating free-form human requests into precise SQL queries against the FHIR database, it opens up a world of possibilities without the need for technical expertise or understanding complex data models.
+Transform the way you manage healthcare data with AIQuery. Dive into a seamless, efficient, and user-friendly experience that puts powerful data queries at your fingertips, all through the simplicity of natural language. Try AIQuery today and step into the future of healthcare analytics.
 
 ## Components
 ### Container 1: InterSystems FHIR Database
