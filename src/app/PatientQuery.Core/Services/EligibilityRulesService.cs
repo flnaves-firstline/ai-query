@@ -190,7 +190,7 @@ public class EligibilityRulesService : IEligibilityRulesService
     private string TransformLifeStatusRule(string op, string value, Func<object, string> registerParam)
     {
         var (@operator, _) = TransformComparisonOperator(op);
-        return $"(COALESCE(p.DeceasedDateTime, 'alive') {@operator} 'alive' AND {registerParam(value)} {@operator} 'alive')";
+        return $"(CASE WHEN p.DeceasedDateTime IS NULL THEN 'alive' ELSE 'deceased' END) {@operator} {registerParam(value)}";
     }
 
     private string TransformGenderRule(string op, string value, Func<object, string> registerParam)
