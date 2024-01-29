@@ -21,7 +21,7 @@ Here's how our solution stands out:
 Experience AIQuery in action through these simple steps:
 - **Basic query execution:**
 Begin with a straightforward request. For example, you might ask for "all patients with diabetes."
-
+![AIQuery 1](https://github.com/flnaves-firstline/ai-query/assets/157819189/70a4e7dc-e193-4c70-ad0a-79267b0d0987)
 - **Refining your search:**
 Add details to narrow down your search: "Show me those who were born after 1960”
 
