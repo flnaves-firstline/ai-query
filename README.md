@@ -24,12 +24,13 @@ Begin with a straightforward request. For example, you might ask for "all patien
 ![AIQuery 1](https://github.com/flnaves-firstline/ai-query/assets/157819189/70a4e7dc-e193-4c70-ad0a-79267b0d0987)
 - **Refining your search:**
 Add details to narrow down your search: "Show me those who were born after 1960”
-
+![AIQuery 2](https://github.com/flnaves-firstline/ai-query/assets/157819189/5b2e5b9b-9b75-431e-a874-5b4e341382e2)
 - **Complex queries simplified:**
 Use natural language for complex requests. "Find patients who take simvastatin":
-
+![AIQuery 3](https://github.com/flnaves-firstline/ai-query/assets/157819189/33f020a0-f888-4365-9dd3-bbc6ba9ba4da)
 - **Interactive Clarifications:**
 When clarification is needed, AIQuery interacts with you. If you ask to find all patients who take aspirin, AIQuery will specify if it is a brand name or a drug generic / class name:
+![AIQuery 4](https://github.com/flnaves-firstline/ai-query/assets/157819189/aaa64ede-cb83-4490-bb70-259af7ae2fef)
 
 AIQuery isn't just an app; it's a revolution in healthcare data management. By translating free-form human requests into precise SQL queries against the FHIR database, it opens up a world of possibilities without the need for technical expertise or understanding complex data models.
 Transform the way you manage healthcare data with AIQuery. Dive into a seamless, efficient, and user-friendly experience that puts powerful data queries at your fingertips, all through the simplicity of natural language. Try AIQuery today and step into the future of healthcare analytics.
