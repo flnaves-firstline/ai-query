@@ -296,27 +296,79 @@ public class EligibilityRulesService : IEligibilityRulesService
             }
         }
 
-        var (_, isNegation) = TransformComparisonOperator(op);
+        var (@operator, _) = TransformComparisonOperator(op);
+
+        var expression = @$"
+{(@operator == "=" ? "" : "NOT")} EXISTS (
+    SELECT 1
+    FROM TransformationSparta.MedicationRequest mr
+    WHERE p.""Key"" = mr.SubjectReference
+        AND mr.Status = 'active'
+        AND mr.MedicationCodeableConceptCodingCode IN {registerParam(codes)}
+)
+            ";
+
         return
         (
-            $"mr.MedicationCodeableConceptCodingCode {(isNegation ? "NOT IN" : "IN")} {registerParam(codes)}",
+            expression,
             false
         );
     }
 
     private string TransformDiagnosesRule(string op, string value, Func<object, string> registerParam)
     {
-        throw new NotImplementedException();
+        var (@operator, _) = TransformComparisonOperator(op);
+
+        return @$"
+{(@operator == "=" ? "" : "NOT")} EXISTS (
+    SELECT 1
+    FROM TransformationSparta.Condition c
+    WHERE p.""Key"" = c.SubjectReference
+        AND c.CodeText LIKE {registerParam($"%{value}%")}
+)
+            ";
     }
 
     private string TransformProceduresRule(string op, string value, Func<object, string> registerParam)
     {
-        throw new NotImplementedException();
+        var (@operator, _) = TransformComparisonOperator(op);
+
+        return @$"
+{(@operator == "=" ? "" : "NOT")} EXISTS (
+    SELECT 1
+    FROM TransformationSparta.Procedure pr
+    WHERE p.""Key"" = pr.SubjectReference
+        AND pr.CodeText LIKE {registerParam($"%{value}%")}
+)
+            ";
     }
 
     private string TransformEncounterDateRule(string op, string value, Func<object, string> registerParam)
     {
-        throw new NotImplementedException();
+        if (op == EligibilityRuleOperatorConstants.Between)
+        {
+            var values = value.Split('^');
+            return @$"
+EXISTS (
+    SELECT 1
+    FROM TransformationSparta.Encouner e
+    WHERE p.""Key"" = e.SubjectReference
+        AND {registerParam(values[0])} <= e.PeriodStart AND e.PeriodStart <= {registerParam(values[1])}
+)
+            ";
+        }
+        else
+        {
+            var (@operator, isNegation) = TransformComparisonOperator(op);
+            return @$"
+{(isNegation ? "NOT" : "")} EXISTS (
+    SELECT 1
+    FROM TransformationSparta.Encouner e
+    WHERE p.""Key"" = e.SubjectReference
+        AND e.PeriodStart @operator {registerParam(value)}
+)
+                ";
+        }
     }
 
     private (string Operator, bool IsNegation) TransformComparisonOperator(string op)

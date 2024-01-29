@@ -61,13 +61,8 @@ public class PatientService : IPatientService
         }
 
         var queryPatientIds = @$"
-SELECT
-	DISTINCT p.ID
+SELECT p.ID
 FROM TransformationSparta.Patient p
-LEFT JOIN TransformationSparta.MedicationRequest mr ON p.""Key"" = mr.SubjectReference AND mr.Status = 'active'
-LEFT JOIN TransformationSparta.""Condition"" c ON p.""Key"" = c.SubjectReference 
-LEFT JOIN TransformationSparta.""Observation"" o ON p.""Key"" = o.SubjectReference
-LEFT JOIN TransformationSparta.""Procedure"" pr ON p.""Key"" = pr.SubjectReference
 WHERE {whereExpr}
             ";
 
