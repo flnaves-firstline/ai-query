@@ -134,7 +134,7 @@ docker-compose up -d
 This and other helpful commands you can find in [dev.md](https://github.com/intersystems-community/iris-fhir-template/blob/cd7e0111ff94dcac82377a2aa7df0ce5e0571b5a/dev.md)
 
 **Team**
-BE developer: Flavio Naves
-Full stack developer: Denis Kiselev
-QA: Kseniya Hoar
-PM: Olga Verevkina
+- BE developer: Flavio Naves
+- Full stack developer: Denis Kiselev
+- QA: Kseniya Hoar
+- PM: Olga Verevkina
