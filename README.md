@@ -55,7 +55,7 @@ Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installi
 Clone/git pull the repo into any local directory
 
 ```
-$ git clone https://github.com/flnaves/fhir-contest.git
+$ git clone https://github.com/flnaves-firstline/ai-query.git
 ```
 
 The application requires an OpenAI API key to work. Insert the key to the [src/app/PatientQuery.Back/appsettings.json](https://github.com/intersystems-community/iris-fhir-server-template/tree/master/src/app/PatientQuery.Back/appsettings.json) config file in the `OpenAi.ApiKey` field
