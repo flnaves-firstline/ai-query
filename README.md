@@ -17,24 +17,6 @@ Here's how our solution stands out:
 - **Interactive clarification:** When queries are ambiguous, AIQuery seeks clarity. If you mention "ibuprofen," the app confirms whether you're referring to the drug specifically or its broader class.
 - **Effortless asynchronicity:** Request your data and move on with your day. AIQuery works in the background, delivering results when you're ready, even if it's "by tomorrow morning."
 
-## Demo
-Experience AIQuery in action through these simple steps:
-- **Basic query execution:**
-Begin with a straightforward request. For example, you might ask for "all patients with diabetes."
-![AIQuery 1](https://github.com/flnaves-firstline/ai-query/assets/157819189/70a4e7dc-e193-4c70-ad0a-79267b0d0987)
-- **Refining your search:**
-Add details to narrow down your search: "Show me those who were born after 1960”
-![AIQuery 2](https://github.com/flnaves-firstline/ai-query/assets/157819189/5b2e5b9b-9b75-431e-a874-5b4e341382e2)
-- **Complex queries simplified:**
-Use natural language for complex requests. "Find patients who take simvastatin":
-![AIQuery 3](https://github.com/flnaves-firstline/ai-query/assets/157819189/33f020a0-f888-4365-9dd3-bbc6ba9ba4da)
-- **Interactive Clarifications:**
-When clarification is needed, AIQuery interacts with you. If you ask to find all patients who take aspirin, AIQuery will specify if it is a brand name or a drug generic / class name:
-![AIQuery 4](https://github.com/flnaves-firstline/ai-query/assets/157819189/aaa64ede-cb83-4490-bb70-259af7ae2fef)
-
-AIQuery isn't just an app; it's a revolution in healthcare data management. By translating free-form human requests into precise SQL queries against the FHIR database, it opens up a world of possibilities without the need for technical expertise or understanding complex data models.
-Transform the way you manage healthcare data with AIQuery. Dive into a seamless, efficient, and user-friendly experience that puts powerful data queries at your fingertips, all through the simplicity of natural language. Try AIQuery today and step into the future of healthcare analytics.
-
 ## Components
 ### Container 1: InterSystems FHIR Database
 Functionality: This container runs an InterSystems FHIR database. The database schema is meticulously crafted using the FHIR SQL Builder, ensuring an optimized structure for storing and retrieving patient information efficiently and securely.
@@ -132,6 +114,24 @@ docker-compose up -d
 ```
 
 This and other helpful commands you can find in [dev.md](https://github.com/intersystems-community/iris-fhir-template/blob/cd7e0111ff94dcac82377a2aa7df0ce5e0571b5a/dev.md)
+
+## Demo
+Experience AIQuery in action through these simple steps:
+- **Basic query execution:**
+Begin with a straightforward request. For example, you might ask for "all patients with diabetes."
+![AIQuery 1](https://github.com/flnaves-firstline/ai-query/assets/157819189/70a4e7dc-e193-4c70-ad0a-79267b0d0987)
+- **Refining your search:**
+Add details to narrow down your search: "Show me those who were born after 1960”
+![AIQuery 2](https://github.com/flnaves-firstline/ai-query/assets/157819189/5b2e5b9b-9b75-431e-a874-5b4e341382e2)
+- **Complex queries simplified:**
+Use natural language for complex requests. "Find patients who take simvastatin":
+![AIQuery 3](https://github.com/flnaves-firstline/ai-query/assets/157819189/33f020a0-f888-4365-9dd3-bbc6ba9ba4da)
+- **Interactive Clarifications:**
+When clarification is needed, AIQuery interacts with you. If you ask to find all patients who take aspirin, AIQuery will specify if it is a brand name or a drug generic / class name:
+![AIQuery 4](https://github.com/flnaves-firstline/ai-query/assets/157819189/aaa64ede-cb83-4490-bb70-259af7ae2fef)
+
+AIQuery isn't just an app; it's a revolution in healthcare data management. By translating free-form human requests into precise SQL queries against the FHIR database, it opens up a world of possibilities without the need for technical expertise or understanding complex data models.
+Transform the way you manage healthcare data with AIQuery. Dive into a seamless, efficient, and user-friendly experience that puts powerful data queries at your fingertips, all through the simplicity of natural language. Try AIQuery today and step into the future of healthcare analytics.
 
 **Team**
 - Intersystems certified BE developer: Flavio Naves
