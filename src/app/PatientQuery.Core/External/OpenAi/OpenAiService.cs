@@ -48,6 +48,12 @@ public class OpenAiService : IAiService
             MaxTokens = settings.MaxTokens,
             PresencePenalty = settings.PresencePenalty,
             FrequencyPenalty = settings.FrequencyPenalty,
+            ResponseFormat = settings.ResponseFormat != null
+                ? new ResponseFormat
+                {
+                    Type = settings.ResponseFormat.Type
+                }
+                : null
         };
         var jsonData = JsonSerializer.Serialize(request, _jsonSettings);
 

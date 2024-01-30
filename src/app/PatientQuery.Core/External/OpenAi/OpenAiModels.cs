@@ -50,7 +50,15 @@ public class ChatCompletionRequest
     [JsonPropertyName("frequency_penalty")]
     public double? FrequencyPenalty { get; set; }
 
+    [JsonPropertyName("response_format")]
+    public ResponseFormat? ResponseFormat { get; set; }
+
     public string? User { get; set; }
+}
+
+public class ResponseFormat
+{
+    public string Type { get; set; } = null!;
 }
 
 public partial class Usage

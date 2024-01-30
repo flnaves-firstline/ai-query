@@ -1,5 +1,10 @@
 namespace PatientQuery.Core.Models.Config;
 
+public class ResponseFormat
+{
+    public string Type { get; set; } = null!;
+}
+
 public class OpenAiRequestModel
 {
     public string Model { get; set; } = null!;
@@ -15,6 +20,8 @@ public class OpenAiRequestModel
     public double? PresencePenalty { get; set; }
 
     public double? FrequencyPenalty { get; set; }
+
+    public ResponseFormat? ResponseFormat { get; set; }
 }
 
 public class OpenAiConfigModel
