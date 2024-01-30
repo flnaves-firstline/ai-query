@@ -56,6 +56,10 @@ Open the terminal in this directory and run:
 $ docker-compose up -d
 ```
 
+After successful launch, you can open the application in the browser http://localhost:5000
+> **NOTE:**  It may take a couple of minutes before opening the application until the databases in the containers are initialized
+
+
 ## Patient data
 The template goes with 19 preloaded patents in [/data/fhir](https://github.com/intersystems-community/iris-fhir-server-template/tree/master/data/fhir) folder which are being loaded during [docker build](https://github.com/intersystems-community/iris-fhir-server-template/blob/8bd2932b34468f14530a53d3ab5125f9077696bb/iris.script#L26)
 You can generate more patients doing the following. Open shel terminal in repository folder and call:
