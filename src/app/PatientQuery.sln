@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientQuery.Common", "Pati
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientQuery.Core", "PatientQuery.Core\PatientQuery.Core.csproj", "{5A056837-45AB-4A57-A1E9-25285C19C665}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientQuery.Db", "PatientQuery.Db\PatientQuery.Db.csproj", "{CAB98F67-4354-45AD-B5D6-F7909F62F691}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PatientQuery.IrisDb", "PatientQuery.IrisDb\PatientQuery.IrisDb.csproj", "{E7D95067-8C5B-4D10-A31B-FC6BBE6FFB77}"
 EndProject
 Global
@@ -31,10 +29,6 @@ Global
 		{5A056837-45AB-4A57-A1E9-25285C19C665}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5A056837-45AB-4A57-A1E9-25285C19C665}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5A056837-45AB-4A57-A1E9-25285C19C665}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CAB98F67-4354-45AD-B5D6-F7909F62F691}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CAB98F67-4354-45AD-B5D6-F7909F62F691}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CAB98F67-4354-45AD-B5D6-F7909F62F691}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CAB98F67-4354-45AD-B5D6-F7909F62F691}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7D95067-8C5B-4D10-A31B-FC6BBE6FFB77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E7D95067-8C5B-4D10-A31B-FC6BBE6FFB77}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E7D95067-8C5B-4D10-A31B-FC6BBE6FFB77}.Release|Any CPU.ActiveCfg = Release|Any CPU

@@ -1,7 +1,5 @@
 ﻿using System.Globalization;
 
-using Microsoft.EntityFrameworkCore;
-
 using NLog;
 using NLog.Web;
 
@@ -10,7 +8,6 @@ using PatientQuery.Back.Middleware.Cqrs;
 using PatientQuery.Core;
 using PatientQuery.Core.Antlr.EligibilityRule;
 using PatientQuery.Core.External.OpenAi;
-using PatientQuery.Db;
 
 Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
 Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
@@ -31,8 +28,6 @@ try
     builder.Services.AddSingleton<IConfigService>(config);
 
     //db
-    builder.Services.AddDbContext<DatabaseContext>(options =>
-        options.UseNpgsql(config.ConnectionString, builder => builder.SetPostgresVersion(new Version(13, 4))));
     builder.Services.AddSingleton(new IrisDapperContext(config.IrisConnectionString));
 
     //web
@@ -60,15 +55,6 @@ try
 
     //build app
     var app = builder.Build();
-
-    using (var scope = app.Services.CreateScope())
-    {
-        await using (var dbContext = scope.ServiceProvider.GetRequiredService<DatabaseContext>())
-        {
-            //apply migrations
-            await dbContext.Database.MigrateAsync();
-        }
-    }
 
     if (app.Environment.IsDevelopment())
     {

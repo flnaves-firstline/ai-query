@@ -4,7 +4,6 @@ public interface IConfigService
 {
     JsonSerializerOptions JsonSettings { get; }
     string AppVersion { get; }
-    string ConnectionString { get; }
     string IrisConnectionString { get; }
     OpenAiConfigModel OpenAi { get; }
 }
@@ -24,7 +23,6 @@ public class ConfigService : IConfigService
         _config = config;
     }
 
-    public string ConnectionString => _config.GetSection("Connections").GetValue<string>("Default");
     public string IrisConnectionString => _config.GetSection("Connections").GetValue<string>("Iris");
     public string AppVersion => _config.GetValue<string>("AppVersion");
     public OpenAiConfigModel OpenAi => _config.GetSection("OpenAi").Get<OpenAiConfigModel>();

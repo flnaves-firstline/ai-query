@@ -7,7 +7,6 @@
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\PatientQuery.Common\PatientQuery.Common.csproj" />
-    <ProjectReference Include="..\PatientQuery.Db\PatientQuery.Db.csproj" />
     <ProjectReference Include="..\PatientQuery.IrisDb\PatientQuery.IrisDb.csproj" />
   </ItemGroup>
   <ItemGroup>

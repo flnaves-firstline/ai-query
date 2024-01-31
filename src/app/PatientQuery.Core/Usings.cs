@@ -10,7 +10,6 @@ global using System.Threading.Tasks;
 global using MediatR;
 
 global using Microsoft.AspNetCore.Http;
-global using Microsoft.EntityFrameworkCore;
 global using Microsoft.Extensions.Configuration;
 
 global using PatientQuery.Common.Extensions;
