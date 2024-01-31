@@ -16,11 +16,11 @@ public interface IClinicalFindingService
 
 public class ClinicalFindingService : IClinicalFindingService
 {
-    private readonly OmopDapperContext _omopDapperContext;
+    private readonly IrisDapperContext _irisDapperContext;
 
-    public ClinicalFindingService(OmopDapperContext omopDapperContext)
+    public ClinicalFindingService(IrisDapperContext irisDapperContext)
     {
-        _omopDapperContext = omopDapperContext;
+        _irisDapperContext = irisDapperContext;
     }
 
     public async Task<List<ClinicalFinding>> GetClinicalFindingsAsync(List<string> conceptCodes)
@@ -32,10 +32,10 @@ SELECT
     c.domain_id as DomainId
 FROM cdm.concept c
 WHERE c.vocabulary_id = 'SNOMED'
-	AND c.concept_code = ANY(@ConceptCodes)
+	AND c.concept_code IN @ConceptCodes
             ";
 
-        using (var connection = _omopDapperContext.CreateConnection())
+        using (var connection = _irisDapperContext.CreateConnection())
         {
             var rows = await connection.QueryAsync<ClinicalFinding>(query, new { ConceptCodes = conceptCodes }, commandTimeout: 240);
             return rows.ToList();

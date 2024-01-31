@@ -33,7 +33,6 @@ try
     //db
     builder.Services.AddDbContext<DatabaseContext>(options =>
         options.UseNpgsql(config.ConnectionString, builder => builder.SetPostgresVersion(new Version(13, 4))));
-    builder.Services.AddSingleton(new OmopDapperContext(config.OmopConnectionString));
     builder.Services.AddSingleton(new IrisDapperContext(config.IrisConnectionString));
 
     //web

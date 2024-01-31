@@ -263,7 +263,7 @@ public class EligibilityRulesService : IEligibilityRulesService
             }
             else
             {
-                var atcCode = await _medicationService.GetAtcCodeIfNotBrandAsync(value);
+                var atcCode = await _medicationService.GetAtcCodeAsync(value);
                 if (atcCode != null)
                 {
                     codes = await _medicationService.GetCodesByAtcCode(atcCode);
@@ -277,7 +277,7 @@ public class EligibilityRulesService : IEligibilityRulesService
         else
         {
             var brandConceptIds = await _medicationService.GetBrandConceptIds(value);
-            var atcCode = await _medicationService.GetAtcCodeIfNotBrandAsync(value);
+            var atcCode = await _medicationService.GetAtcCodeAsync(value);
             if (atcCode != null && !brandConceptIds.Any())
             {
                 codes = await _medicationService.GetCodesByAtcCode(atcCode);
